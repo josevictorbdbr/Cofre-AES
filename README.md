@@ -11,10 +11,9 @@ Algoritmo AES em Python, com cifragem e decifragem de arquivos usando modo CBC e
 5. Escreva a opção de decrifrar: "python main.py decifrar <arquivo.txt.cifrado>"
 
 ### Opcional:
-- Rodar python main.py testar para rodar testes de validação
+- Rodar "python main.py testar" para rodar testes de validação
 
 ### Tecnologia usadas: 
 - AES Implementado manualmente sem bibliotecas externas
 - Modo CBC
 - PBKDF2 (SHA-256)
-
