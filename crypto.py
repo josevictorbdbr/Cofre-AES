@@ -14,9 +14,17 @@ def pad(dados: bytes, tamanho_bloco: int = 16) -> bytes:
 
 
 def unpad(dados: bytes) -> bytes:
+    if not dados:
+        raise ValueError('Dados vazios')
+
     valor = dados[-1]
+
     if valor < 1 or valor > 16:
         raise ValueError('Padding invalido')
+
+    if dados[-valor:] != bytes([valor] * valor):
+        raise ValueError('Padding invalido')
+
     return dados[:-valor]
 
 
