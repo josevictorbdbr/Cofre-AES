@@ -1,11 +1,12 @@
 import os
-import hashlib
+from sha256 import sha256
 from aes import cifrar_bloco, decifrar_bloco, xor_bytes
 
 
 #Gera a chave a partir da senha
-def derivar_chave(senha: str, salt: bytes, iteracoes: int = 100_000) -> bytes:
-    return hashlib.pbkdf2_hmac('sha256', senha.encode('utf-8'), salt, iteracoes, dklen=32)
+def derivar_chave(senha: str, salt: bytes) -> bytes:
+    dados = senha.encode('utf-8') + salt
+    return sha256(dados)
 
 
 def pad(dados: bytes, tamanho_bloco: int = 16) -> bytes:
